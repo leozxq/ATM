@@ -1,7 +1,8 @@
 
 import sys,os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from core import src
 
 def run():
     while True:
@@ -21,9 +22,15 @@ def run():
         ''')
         select=input("请输入1-10，选择你想要的功能：")
         if select=='1':
-            from core import src
+
             src.register()
-        break
+        elif select=='2':
+            src.login()
+        elif select=='3':
+            src.check_balance()
+        elif select=='4':
+            src.withdraw()
+
 
 if __name__=="__main__":
     run()
