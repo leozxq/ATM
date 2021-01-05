@@ -1,4 +1,4 @@
-import hashlib
+import hashlib,time
 
 
 def get_pwd_md5(password):
@@ -21,3 +21,7 @@ def login_auth(func):
             res=func(*args,**kwargs)
             return res
     return inner
+
+def gettime():
+    nowtime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    return nowtime

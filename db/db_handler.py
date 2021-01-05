@@ -11,7 +11,7 @@ def save(data):
 def check(username):
     userdata_file=os.path.join(settings.user_data_path,f'{username}.json')
     if os.path.isfile(userdata_file):
-        with open(userdata_file,'r') as f:
+        with open(userdata_file,'r',encoding='utf-8') as f:
             user_dict=json.load(f)
             return user_dict
 

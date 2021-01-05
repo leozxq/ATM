@@ -14,7 +14,7 @@ def register_interface(username,password,balance=15000):
             'shop_car': {},
             'locked': False,  # 用户是否被冻结
         }
-        user_dict=db_handler.save(user_dict)
+        db_handler.save(user_dict)
         return True, "%s 用户创建成功"%username
 
 def login_interface(username,password):
