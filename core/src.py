@@ -36,9 +36,8 @@ def login():
 
 @common.login_auth
 def check_balance():
-    username = login_user
-    balance = user_interface.check_balance_interface(username)
-    print(f"{username} 用户的余额为{balance}")
+    balance = user_interface.check_balance_interface(login_user)
+    print(f"{login_user} 用户的余额为{balance}")
 
 
 @common.login_auth
@@ -103,11 +102,51 @@ def check_flow():
 
 @common.login_auth
 def shopping():
-    pass
+    #商品列表保存在shap_data中的商品文件中。
+    product_list=shop_interface.get_product_list_interface()
+    print(product_list)
+    while True:
+        for index,name_price in enumerate(product_list):
+            name,price=name_price
+            print(
+                f'商品编号: {index}',
+                f'商品名称：{name}',
+                f'商品价格：{price}'
+                  )
+        choice=input('请选择商品编号（是否结账请输入Y or N）：')
+        if choice.isdigit():
+            if int(choice) in range(len(product_list)):
+                choice=int(choice)
+                name=product_list[choice][0]
+                price=float(product_list[choice][1])
+                flag,msg=shop_interface.add_shop_car_interface(login_user, name, price)
+                if flag:
+                    print(msg)
+        elif choice == 'Y' or choice=='y':
+            flag,msg=shop_interface.pay_shop_car_interface(login_user)
+            if flag:
+                print(msg)
+                break
+            else:
+                print(msg)
+
+
+
 
 @common.login_auth
 def check_shop_car():
-    pass
+    while True:
+        flag,msg=shop_interface.check_shop_car_interface(login_user)
+        if not flag:
+            print(msg)
+            break
+        print(msg)
+        for key,value in msg.items():
+            print(
+                f"商品名称：{key}，单价：{value[0]},数量：{value[1]}"
+            )
+        break
+
 
 @common.login_auth
 def admin():

@@ -1,0 +1,6 @@
+[2021-01-13 09:29:38] [ERROR] [user_interface.py:14] [c 用户已经存在，请重新输入用户名：]
+[2021-01-13 09:29:55] [ERROR] [user_interface.py:14] [b 用户已经存在，请重新输入用户名：]
+[2021-01-13 09:31:05] [ERROR] [MainThread:13516] [user_interface.py:14] [c 用户已经存在，请重新输入用户名：]
+[2021-01-13 09:34:53] [MainThread:1620] [13424 ] [user_interface.py:14] [ERROR] [c 用户已经存在，请重新输入用户名：]
+[2021-01-13 09:52:50] [MainThread:4328] [2600 ] [user_interface.py:14] [ERROR] [A 用户已经存在，请重新输入用户名：]
+[2021-01-13 09:53:01] [MainThread:4328] [2600 ] [user_interface.py:14] [ERROR] [a 用户已经存在，请重新输入用户名：]
