@@ -17,7 +17,7 @@ class Movie(Base) :
     __tablename__ = 'movies' 
   
     id = Column(Integer, primary_key=True) 
-    title = Column(String(255), nullable=False) 
+    title = Column(String(255), nullable=True) 
     year = Column(Integer) 
     directed_by = Column(Integer, ForeignKey('directors.id')) 
     director = relation('Director', backref='movies', lazy=False) 
